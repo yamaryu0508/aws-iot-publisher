@@ -1,0 +1,29 @@
+.panel-body {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+.panel-body {
+  width: 350px;
+  margin-left: 20%;
+  overflow-y: scroll;
+}
+
+td {
+  padding: 3px;
+}
+
+.add-active {
+  background-color: #00baff
+}
+
+.add-active:hover {
+  background-color: #00baff
+}
+
+.delete {
+
+}
+
+.delete:hover {
+  background-color: #ff004c
+}

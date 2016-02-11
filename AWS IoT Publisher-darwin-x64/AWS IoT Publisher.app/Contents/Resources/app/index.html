@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>AWS IoT Publisher</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/sweetalert.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- navigation bar fixed-top -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand">AWS IoT Publisher</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- main container -->
+  <div class="container">
+    <div class="panel-body">
+      <!-- selector of region for AWS IoT -->
+      <div class="form-group has-success">
+        <label class="control-label" for="aws-region">AWS IoT Region</label>
+        <select id="aws-region" class="form-control required-form"></select>
+      </div>
+
+      <!-- textbox of MQTT Topic -->
+      <div class="form-group has-success">
+        <label class="control-label" for="mqtt-topic">MQTT Topic</label>
+        <input id="mqtt-topic" class="form-control required-form" placeholder="topic_1">
+      </div>
+
+      <!-- textbox of Client ID -->
+      <div class="form-group">
+        <label class="control-label" for="client-id">Client ID</label>
+        <input id="client-id" class="form-control" placeholder="Client ID">
+      </div>
+
+      <!-- insertion of file path for CA -->
+      <div class="form-group has-success">
+        <label class="control-label" for="ca-file-select">CA File</label>
+        <div class="form-group input-group has-success">
+          <input id="ca-file-select" type="text" class="form-control required-form">
+          <span class="input-group-btn">
+        <button id="ca-file-select-btn" class="btn btn-default" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+        </span>
+        </div>
+      </div>
+
+      <!-- insertion of file path for Client Certificate -->
+      <div class="form-group has-success">
+        <label class="control-label" for="client-certificate-file-select">Client Certificate File</label>
+        <div class="form-group input-group has-success">
+          <input id="client-certificate-file-select" type="text" class="form-control required-form">
+          <span class="input-group-btn">
+        <button id="client-certificate-file-select-btn" class="btn btn-default" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+        </span>
+        </div>
+      </div>
+
+      <!-- insertion of file path for Client Key -->
+      <div class="form-group has-success">
+        <label class="control-label" for="client-key-file-select">Client Key File</label>
+        <div class="form-group input-group has-success">
+          <input id="client-key-file-select" type="text" class="form-control required-form">
+          <span class="input-group-btn">
+        <button id="client-key-file-select-btn" class="btn btn-default" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+        </span>
+        </div>
+      </div>
+
+      <!-- Table for MQTT key-values -->
+      <div class="form-group has-success">
+        <label class="control-label" for="operation-fields">Key & Value Pairs for MQTT Publish</label>
+        <table>
+          <tbody id="operation-fields">
+            <tr>
+              <td>
+                <input class="form-control mqtt-publish-key" placeholder="key">
+              </td>
+              <td>
+                <input class="form-control mqtt-publish-value" placeholder="value">
+              </td>
+              <td>
+                <button class="btn btn-default btn-circle add-active"><i class="fa fa-plus-circle fa-lg"></i></button>
+              </td>
+              <td style="width:48px;">
+                <button class="btn btn-default btn-circle delete"><i class="fa fa-minus-circle fa-lg"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MQTT Publish button -->
+      <div class="form-group">
+        <button id="mqtt-publish" type="button" class="btn btn-primary btn-lg">Publish to AWS IoT !</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // definition of jQuery
+    window.jQuery = window.$ = require('./js/jquery-2.1.4.min.js');
+  </script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/sweetalert.min.js"></script>
+  <script src="./js/spin.min.js"></script>
+  <script src="./js/helper.js"></script>
+  <script src="./js/createDOMElements.js"></script>
+  <script src="./js/attachEvents.js"></script>
+  <script>
+    // load libraries
+    var remote = require('remote');
+    var dialog = remote.require('dialog');
+    var browserWindow = remote.require('browser-window');
+    var awsIot = require('aws-iot-device-sdk');
+    var moment = require('moment');
+
+    $(function() {
+      // creation of DOM
+      createDOMElements();
+      // attachment of events
+      attachEvents();
+    });
+  </script>
+</body>
+
+</html>
