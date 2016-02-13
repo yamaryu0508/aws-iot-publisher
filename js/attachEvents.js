@@ -56,6 +56,7 @@ function attachEvents() {
       });
     } else {
       try {
+        showSpinner();
         var mqtt_json = retrieveTable();
         mqtt_json['time'] = moment().format();
 
@@ -74,6 +75,7 @@ function attachEvents() {
             console.log('connect');
             device.publish($('#mqtt-topic').val(), JSON.stringify(mqtt_json));
             console.log(JSON.stringify(mqtt_json));
+            hideSpinner();
             swal({
               title: 'Connect',
               text: 'Message: ' + JSON.stringify(mqtt_json),
@@ -83,6 +85,7 @@ function attachEvents() {
             });
           });
       } catch (e) {
+        hideSpinner();
         swal({
           title: 'Error occurred while publishing process',
           text: '',
