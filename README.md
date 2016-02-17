@@ -16,7 +16,9 @@ MIT
 
 ## Packaged app.
 
-*  [MacOS X (darwin)](https://github.com/yamaryu0508/aws-iot-publisher/tree/master/AWS%20IoT%20Publisher-darwin-x64)
+* MacOS X ([darwin 64bit](https://github.com/yamaryu0508/aws-iot-publisher/tree/master/AWS%20IoT%20Publisher-darwin-x64))
+* Windows ([64bit](https://github.com/yamaryu0508/aws-iot-publisher/tree/master/AWS%20IoT%20Publisher-win32-x64)/[32bit](https://github.com/yamaryu0508/aws-iot-publisher/tree/master/AWS%20IoT%20Publisher-win32-ia32))
+* Linux ([64bit](https://github.com/yamaryu0508/aws-iot-publisher/tree/master/AWS%20IoT%20Publisher-linux-x64)/[32bit](https://github.com/yamaryu0508/aws-iot-publisher/tree/master/AWS%20IoT%20Publisher-linux-ia32))
 
 ## Fundamental usage
 
